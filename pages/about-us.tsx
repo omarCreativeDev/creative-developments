@@ -1,7 +1,13 @@
 import type { NextPage } from 'next';
+import { Header } from '../components/header/Header';
 
 const AboutUs: NextPage = () => {
-  return <h1>About us</h1>;
+  return (
+    <>
+      <Header />
+      <h1>About us</h1>
+    </>
+  );
 };
 
 export default AboutUs;
