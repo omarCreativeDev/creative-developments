@@ -1,0 +1,54 @@
+name: Creative developments workflow
+'on':
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: use Node.js
+        uses: actions/setup-node@v2
+      - name: install dependencies
+        run: npm i
+      - name: run tests
+        run: npm run test
+      - name: build app
+        run: npm run build -- --configuration production
+
+      # Checks-out your repository under $GITHUB_WORKSPACE,
+      # so your workflow can access it
+      # uses: actions/checkout@master
+      # Copying files and artifacts via SSH
+      - name: Copying files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.PRIVATE_SSH_KEY }}
+          # ensure destination folder on the remote server is completely cleaned before downloading new files
+          rm: true
+          # defines the folder, that will be uploaded to the remote server
+          source: "dist/creative-developments/"
+          # full path to the folder on the remote server, where the files from 'source' will be uploaded
+          target: "${{ secrets.REMOTE_DIR }}"
+          # remove the specified number of leading path elements
+          # i.e, remove dist folder
+          strip_components: 1
+
+      - name: install backend dependencies & start server using pm2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.PRIVATE_SSH_KEY }}
+          # kill node to bypass `EADDRINUSE, Address/port already in use` error
+          script: |
+            cd "${{ secrets.REMOTE_DIR }}/creative-developments/backend"
+            npm i
+            pm2 restart server.js
