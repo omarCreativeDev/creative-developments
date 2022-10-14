@@ -5,41 +5,33 @@ import { faLinkedin, faTwitter, faGithub, faBitbucket } from '@fortawesome/free-
 export const Header = () => {
   return (
     <header id="back-to-top">
-      <div className="container px-3">
-        <div className="flex">
-          <div className="col-sm-12 col-md-8">
+      <div className="container m-auto p-4">
+        <div className="grid grid-cols-2">
+          <div>
             <Link href="https://www.linkedin.com/in/omarcreativedev">
-              <a
-                target="_blank"
-                className="header__social-link text-body pr-5 d-inline-flex align-items-center no-underline"
-              >
-                <FontAwesomeIcon icon={faLinkedin} />
+              <a target="_blank" className="pr-8" rel="noreferrer">
+                <FontAwesomeIcon className="pr-2" icon={faLinkedin} />
+                LinkedIn
               </a>
             </Link>
             <Link href="https://twitter.com/OmarCreativeDev">
-              <a
-                target="_blank"
-                className="header__social-link text-body d-inline-flex align-items-center no-underline"
-              >
-                <FontAwesomeIcon icon={faTwitter} />
+              <a target="_blank" className="pr-8">
+                <FontAwesomeIcon className="pr-2" icon={faTwitter} />
+                Twitter
               </a>
             </Link>
           </div>
-          <div className="col-md-4 text-right d-none d-md-block">
+          <div className="justify-self-end hidden sm:block">
             <Link href="https://github.com/omarCreativeDev">
-              <a
-                target="_blank"
-                className="header__social-link text-body pr-5 d-inline-flex align-items-center no-underline"
-              >
-                <FontAwesomeIcon icon={faGithub} />
+              <a target="_blank" className="pr-8">
+                <FontAwesomeIcon className="pr-2" icon={faGithub} />
+                Github
               </a>
             </Link>
             <Link href="https://bitbucket.org/omarCreativeDev">
-              <a
-                target="_blank"
-                className="header__social-link text-body d-inline-flex align-items-center no-underline"
-              >
-                <FontAwesomeIcon icon={faBitbucket} />
+              <a target="_blank" className="pr-8">
+                <FontAwesomeIcon className="pr-2" icon={faBitbucket} />
+                Bitbucket
               </a>
             </Link>
           </div>
