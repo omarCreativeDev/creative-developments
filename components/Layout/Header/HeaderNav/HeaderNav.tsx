@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ListItemDetails } from '../interfaces';
+import styles from './HeaderNav.module.scss';
 
 export const HeaderNav = () => {
   const links: ListItemDetails[] = [
@@ -22,7 +23,7 @@ export const HeaderNav = () => {
   ];
 
   return (
-    <div className="">
+    <div className={styles.navBg}>
       <div className="container m-auto p-4">
         <div className="grid grid-flow-col auto-cols-max justify-between">
           <Link href="/">

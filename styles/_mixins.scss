@@ -1,0 +1,6 @@
+@import 'variables';
+
+@mixin bannerBg() {
+  background: url('/images/banner/banner-bg-top.png') top repeat-x,
+    url('/images/banner/banner-bg-bottom.png') bottom repeat-x, $primary-color;
+}

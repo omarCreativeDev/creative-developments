@@ -2,9 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base {
-  html {
-    font-family: "varela", cursive;
-  }
-}
+@import "variables";
+@import "typography";
