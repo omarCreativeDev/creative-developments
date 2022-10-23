@@ -2,18 +2,21 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter, faGithub, faBitbucket } from '@fortawesome/free-brands-svg-icons';
 import { ListItemDetails } from '../interfaces';
+import styles from './HeaderTopLinks.module.scss';
 
 export const HeaderTopLinks = () => {
   const socialLinks: ListItemDetails[] = [
     {
       href: 'https://www.linkedin.com/in/omarcreativedev',
       icon: faLinkedin,
-      label: 'LinkedIn'
+      label: 'LinkedIn',
+      class: 'linkedIn'
     },
     {
       href: 'https://twitter.com/OmarCreativeDev',
       icon: faTwitter,
-      label: 'Twitter'
+      label: 'Twitter',
+      class: 'twitter'
     }
   ];
 
@@ -26,7 +29,8 @@ export const HeaderTopLinks = () => {
     {
       href: 'https://bitbucket.org/omarCreativeDev',
       icon: faBitbucket,
-      label: 'Bitbucket'
+      label: 'Bitbucket',
+      class: 'bitbucket'
     }
   ];
 
@@ -37,8 +41,8 @@ export const HeaderTopLinks = () => {
           {socialLinks &&
             socialLinks.map((i) => (
               <Link href={i.href} key={i.label}>
-                <a target="_blank" rel="noreferrer">
-                  {i.icon && <FontAwesomeIcon className="pr-2" icon={i.icon} />}
+                <a className={`${styles.socialLink} text-sm`} target="_blank" rel="noreferrer">
+                  {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
                   {i.label}
                 </a>
               </Link>
@@ -48,8 +52,8 @@ export const HeaderTopLinks = () => {
           {codeLinks &&
             codeLinks.map((i) => (
               <Link href={i.href} key={i.label}>
-                <a target="_blank" rel="noreferrer">
-                  {i.icon && <FontAwesomeIcon className="pr-2" icon={i.icon} />}
+                <a className={`${styles.socialLink} text-sm`} target="_blank" rel="noreferrer">
+                  {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
                   {i.label}
                 </a>
               </Link>
