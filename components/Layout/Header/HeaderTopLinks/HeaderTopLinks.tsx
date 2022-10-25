@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter, faGithub, faBitbucket } from '@fortawesome/free-brands-svg-icons';
 import { ListItemDetails } from '../interfaces';
-import styles from './HeaderTopLinks.module.scss';
 
 export const HeaderTopLinks = () => {
   const socialLinks: ListItemDetails[] = [
@@ -41,18 +40,18 @@ export const HeaderTopLinks = () => {
           {socialLinks &&
             socialLinks.map((i) => (
               <Link href={i.href} key={i.label}>
-                <a className={`${styles.socialLink} text-sm`} target="_blank" rel="noreferrer">
+                <a className="hover:underline text-sm" target="_blank" rel="noreferrer">
                   {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
                   {i.label}
                 </a>
               </Link>
             ))}
         </div>
-        <div className="flex gap-8">
+        <div className="hidden md:flex gap-8">
           {codeLinks &&
             codeLinks.map((i) => (
               <Link href={i.href} key={i.label}>
-                <a className={`${styles.socialLink} text-sm`} target="_blank" rel="noreferrer">
+                <a className="hover:underline text-sm" target="_blank" rel="noreferrer">
                   {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
                   {i.label}
                 </a>

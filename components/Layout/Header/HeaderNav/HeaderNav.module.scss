@@ -1,5 +1,11 @@
 @import "./styles/_mixins";
+@import "./styles/_variables";
 
 .navBg {
   @include bannerBg();
+}
+
+.logo {
+  font-family: $font-family-palatino;
+  text-transform: uppercase;
 }
