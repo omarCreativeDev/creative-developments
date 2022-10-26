@@ -5,7 +5,7 @@ export const Layout = ({ children }: any) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="container m-auto p-4 my-16 grow">{children}</main>
       <Footer />
     </>
   );
