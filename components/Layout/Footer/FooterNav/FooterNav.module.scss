@@ -3,3 +3,7 @@
 .navBg {
   @include bannerBg();
 }
+
+.description {
+  font-family: $font-family-palatino;
+}

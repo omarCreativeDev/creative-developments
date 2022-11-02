@@ -10,72 +10,46 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 export const FooterNav = () => {
-  const { navBg } = styles;
-  const browserIconList: DataList<IconItemDetails>[] = [
-    {
-      description: 'About Me',
-      items: [
-        {
-          icon: faInternetExplorer,
-          class: 'ABOUT'
-        },
-        {
-          icon: faOpera,
-          class: 'SKILLS'
-        },
-        {
-          icon: faFirefox,
-          class: 'PORTFOLIO'
-        },
-        {
-          icon: faChrome,
-          class: 'CONTACT'
-        },
-        {
-          icon: faSafari,
-          class: 'CONTACT'
-        }
-      ]
-    }
-  ];
-
+  const { navBg, description } = styles;
+  const browserIconList: DataList<IconItemDetails> = {
+    description: (
+      <span className="text-secondary">
+        Cross <span className="text-white">browser</span> support
+      </span>
+    ),
+    items: [
+      {
+        icon: faInternetExplorer,
+        class: 'internetExplorer'
+      },
+      {
+        icon: faOpera,
+        class: 'opera'
+      },
+      {
+        icon: faFirefox,
+        class: 'firefox'
+      },
+      {
+        icon: faChrome,
+        class: 'chrome'
+      },
+      {
+        icon: faSafari,
+        class: 'safari'
+      }
+    ]
+  };
   return (
-    <div className={navBg}>
+    <div className={`${navBg} py-16`}>
       <div className="container m-auto px-4 text-white">
         <dl>
-          <dt className="pb-5">
-            Cross <span className="text-white">browser</span> support
-          </dt>
-          <dd className="pr-4">
-            <FontAwesomeIcon
-              className="justify-content-center internet-explorer-color"
-              icon={faInternetExplorer}
-            ></FontAwesomeIcon>
-          </dd>
-          <dd className="pr-4">
-            <FontAwesomeIcon
-              className="justify-content-center opera-color"
-              icon={faOpera}
-            ></FontAwesomeIcon>
-          </dd>
-          <dd className="pr-4">
-            <FontAwesomeIcon
-              className="justify-content-center firefox-color"
-              icon={faFirefox}
-            ></FontAwesomeIcon>
-          </dd>
-          <dd className="pr-4">
-            <FontAwesomeIcon
-              className="justify-content-center chrome-color"
-              icon={faChrome}
-            ></FontAwesomeIcon>
-          </dd>
-          <dd className="pr-4">
-            <FontAwesomeIcon
-              className="justify-content-center safari-color"
-              icon={faSafari}
-            ></FontAwesomeIcon>
-          </dd>
+          <dt className={`pb-7 uppercase text-lg ${description}`}>{browserIconList.description}</dt>
+          {browserIconList.items.map((i) => (
+            <dd key={i.class} className="inline-grid pr-4">
+              <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
+            </dd>
+          ))}
         </dl>
       </div>
     </div>
