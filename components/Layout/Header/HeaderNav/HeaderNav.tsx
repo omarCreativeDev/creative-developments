@@ -3,6 +3,7 @@ import { ListItemDetails } from '../interfaces';
 import styles from './HeaderNav.module.scss';
 
 export const HeaderNav = () => {
+  const { navBg, logo, link } = styles;
   const links: ListItemDetails[] = [
     {
       href: '/about-me',
@@ -23,11 +24,11 @@ export const HeaderNav = () => {
   ];
 
   return (
-    <div className={styles.navBg}>
+    <div className={navBg}>
       <div className="container m-auto px-4">
         <div className="grid md:grid-flow-col md:auto-cols-max justify-between">
           <Link href="/">
-            <a className={`${styles.logo} no-underline py-10 text-2xl text-secondary`}>
+            <a className={`${logo} no-underline py-10 text-2xl text-secondary uppercase`}>
               <span className="text-white">Creative</span> Developments
             </a>
           </Link>
@@ -37,7 +38,9 @@ export const HeaderNav = () => {
                 links.map((i) => (
                   <li key={i.label}>
                     <Link href={i.href}>
-                      <a className="text-white no-underline py-3">{i.label}</a>
+                      <a className={`text-white no-underline py-3 hover:underline ${link}`}>
+                        {i.label}
+                      </a>
                     </Link>
                   </li>
                 ))}
