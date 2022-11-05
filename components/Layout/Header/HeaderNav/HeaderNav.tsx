@@ -1,27 +1,9 @@
 import Link from 'next/link';
-import { ListItemDetails } from '../interfaces';
+import { navLinks } from '../../constants';
 import styles from './HeaderNav.module.scss';
 
 export const HeaderNav = () => {
   const { navBg, logo, link } = styles;
-  const links: ListItemDetails[] = [
-    {
-      href: '/about-me',
-      label: 'ABOUT'
-    },
-    {
-      href: '/my-skills',
-      label: 'SKILLS'
-    },
-    {
-      href: '/portfolio',
-      label: 'PORTFOLIO'
-    },
-    {
-      href: '/contact-me',
-      label: 'CONTACT'
-    }
-  ];
 
   return (
     <div className={navBg}>
@@ -34,12 +16,12 @@ export const HeaderNav = () => {
           </Link>
           <nav className="flex pb-12 md:pb-0">
             <ul className="grid grid-flow-col auto-cols-max content-center gap-6">
-              {links &&
-                links.map((i) => (
+              {navLinks &&
+                navLinks.map((i) => (
                   <li key={i.label}>
                     <Link href={i.href}>
                       <a className={`text-white no-underline py-3 hover:underline ${link}`}>
-                        {i.label}
+                        {i.label.toUpperCase()}
                       </a>
                     </Link>
                   </li>

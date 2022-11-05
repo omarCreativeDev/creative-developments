@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faTwitter, faGithub, faBitbucket } from '@fortawesome/free-brands-svg-icons';
-import { ListItemDetails } from '../interfaces';
+import { ListItemDetails } from '../../interfaces';
 
 export const HeaderTopLinks = () => {
   const socialLinks: ListItemDetails[] = [
