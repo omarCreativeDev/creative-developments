@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faTwitter, faGithub, faBitbucket } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faGithub, faBitbucket, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { ListItemDetails } from '../../interfaces';
 
 export const HeaderTopLinks = () => {
   const socialLinks: ListItemDetails[] = [
     {
       href: 'https://www.linkedin.com/in/omarcreativedev',
-      icon: faLinkedin,
+      icon: faLinkedinIn,
       label: 'LinkedIn',
       class: 'linkedIn'
     },
@@ -29,7 +29,7 @@ export const HeaderTopLinks = () => {
       href: 'https://bitbucket.org/omarCreativeDev',
       icon: faBitbucket,
       label: 'Bitbucket',
-      class: 'bitbucket'
+      class: 'bitBucket'
     }
   ];
 
