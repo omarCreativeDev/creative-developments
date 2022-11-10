@@ -1,0 +1,6 @@
+@import "../../../styles/colors";
+
+.featuredWork {
+  background: url('/images/featured-work/featured-work-bg-top.gif') top repeat-x,
+    url('/images/featured-work/featured-work-bg-bottom.gif') bottom repeat-x, $tahuna-sands;
+}
