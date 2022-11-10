@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export const Intro = () => {
   return (
-    <div className="container">
+    <div className="container max-w-5xl m-auto">
       <h1 className="text-center">
-        HI! <span className="text-tertiary">I&apos;M OMAR</span>, & I&apos;M A FREELANCE
+        HI! <span className="text-tertiary">I&apos;M OMAR</span>, & I&apos;M A SENIOR
         <span className="text-tertiary"> FRONT END</span> WEB
         <span className="text-tertiary"> DEVELOPER</span>.
       </h1>
@@ -13,7 +13,7 @@ export const Intro = () => {
         <Link href="/contact-me">
           <a className="text-tertiary underline">hire</a>
         </Link>
-        &nbsp;as a full time front end developer on a contract basis. Welcome to my online&nbsp;
+        &nbsp;on a contract basis. Welcome to my online&nbsp;
         <Link href="/contact-me">
           <a className="text-tertiary underline">portfolio</a>
         </Link>

@@ -15,7 +15,7 @@ export const HeaderNav = () => {
             </a>
           </Link>
           <nav className="flex pb-12 md:pb-0">
-            <ul className="grid grid-flow-col auto-cols-max content-center gap-6">
+            <ul className="grid grid-flow-col auto-cols-max content-center gap-6 mb-0">
               {navLinks &&
                 navLinks.map((i) => (
                   <li key={i.label}>

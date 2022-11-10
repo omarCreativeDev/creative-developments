@@ -1,9 +1,28 @@
-@import "variables";
+@import 'variables';
+@import 'mixins';
 
 @layer base {
   html {
     font-family: $font-family-varela;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include palatinoFont();
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+ol,
+p,
+ul {
+  margin: 0 0 2.5rem;
 }
 
 .twitter,
