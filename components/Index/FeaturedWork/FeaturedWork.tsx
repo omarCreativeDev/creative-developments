@@ -1,10 +1,9 @@
 import { Fancybox } from '../../Shared/Fancybox/Fancybox';
-import Image from 'next/future/image';
 import styles from './FeaturedWork.module.scss';
 import { IShowcaseItem } from './interfaces';
 
 export const FeaturedWork = () => {
-  const { featuredWork, item, img } = styles;
+  const { featuredWork, img } = styles;
   const showcaseItems: IShowcaseItem[] = [
     {
       caption: 'Featured Work | Interoute | Pricing',
@@ -26,10 +25,10 @@ export const FeaturedWork = () => {
         Featured <span className="text-tertiary">Work</span>
       </h3>
       <div className={featuredWork}>
-        <article className="container m-auto px-4 grid justify-items-center grid-cols-3">
+        <article className="container m-auto px-4 grid gap-8 justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           <Fancybox>
             {showcaseItems &&
-              showcaseItems.map(({ caption, imageName }: IShowcaseItem) => {
+              showcaseItems.map(({ caption, imageName }: IShowcaseItem, index: number) => {
                 const path = `/images/portfolio/${imageName}.jpg`;
 
                 return (
@@ -38,9 +37,10 @@ export const FeaturedWork = () => {
                     data-fancybox="gallery"
                     href={path}
                     title={caption}
-                    className={`${item} block relative`}
+                    className={`relative ${index === 2 ? 'md:left-1/2 lg:left-0' : ''}`}
                   >
-                    <Image fill alt={caption} src={path} sizes="100vw" className={img} />
+                    {/* eslint-disable @next/next/no-img-element */}
+                    <img alt={caption} src={path} className={img} />
                   </a>
                 );
               })}
