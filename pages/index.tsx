@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { FeaturedWork } from '../components/Index/FeaturedWork/FeaturedWork';
 import { Intro } from '../components/Index/Intro/Intro';
+import { ThingsIDo } from '../components/Index/ThingsIDo/ThingsIDo';
 
 const Home: NextPage = () => {
   return (
@@ -11,6 +12,7 @@ const Home: NextPage = () => {
       </Head>
       <Intro />
       <FeaturedWork />
+      <ThingsIDo />
     </>
   );
 };
