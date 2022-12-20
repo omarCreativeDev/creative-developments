@@ -4,4 +4,5 @@ export interface ISubject {
   description: string;
   icon: IconProp;
   name: string;
+  className: string;
 }
