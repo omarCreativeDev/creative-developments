@@ -152,7 +152,7 @@ export const FooterNav = () => {
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{browserIconList.description}</dt>
           {browserIconList.items.map((i) => (
-            <dd key={`${i.class}-${i.href}`} className="inline-grid pr-4">
+            <dd key={i.class + i.href} className="inline-grid pr-4">
               <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
             </dd>
           ))}
@@ -161,7 +161,7 @@ export const FooterNav = () => {
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{navigationLinks.description}</dt>
           {navigationLinks.items.map((i) => (
-            <dd key={`${i.class}-${i.href}`} className="inline-grid w-1/2 pr-4">
+            <dd key={i.class + i.href} className="inline-grid w-1/2 pr-4">
               <Link href={i.href}>
                 <a className="text-white no-underline hover:underline">{i.label}</a>
               </Link>
@@ -172,7 +172,7 @@ export const FooterNav = () => {
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{favouriteLinks.description}</dt>
           {favouriteLinks.items.map((i) => (
-            <dd key={`${i.class}-${i.label}`} className="inline-grid w-1/2 pr-4">
+            <dd key={i.class + i.href} className="inline-grid w-1/2 pr-4">
               <Link href={i.href}>
                 <a className="text-white no-underline hover:underline" target="_blank">
                   {i.label}
@@ -185,7 +185,7 @@ export const FooterNav = () => {
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{contactInfo.description}</dt>
           {contactInfo.items.map((i) => (
-            <dd key={`${i.class}-${i.icon}`} className="grid pr-4">
+            <dd key={i.class + i.href} className="grid pr-4">
               <Link href={i.href}>
                 <a className="hover:underline" target="_blank" rel="noreferrer">
                   {i.icon && <FontAwesomeIcon className="pr-2" icon={i.icon} />}
@@ -199,7 +199,7 @@ export const FooterNav = () => {
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{codeSamples.description}</dt>
           {codeSamples.items.map((i) => (
-            <dd key={`${i.class}-${i.icon}`} className="inline-grid pr-4">
+            <dd key={i.class + i.href} className="inline-grid pr-4">
               <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
             </dd>
           ))}
@@ -208,7 +208,7 @@ export const FooterNav = () => {
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{connectWithMe.description}</dt>
           {connectWithMe.items.map((i) => (
-            <dd key={`${i.class}-${i.icon}`} className="inline-grid pr-4">
+            <dd key={i.class + i.href} className="inline-grid pr-4">
               <Link href={i.href as string}>
                 <a className="hover:underline" target="_blank" rel="noreferrer">
                   <FontAwesomeIcon

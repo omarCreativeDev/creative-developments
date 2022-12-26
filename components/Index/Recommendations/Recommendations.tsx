@@ -1,6 +1,24 @@
+import { useEffect } from 'react';
 import { IRecommendation } from './interfaces';
+import Glide from '@glidejs/glide';
 
+const sliderConfiguration = {
+  gap: 30,
+  perView: 2,
+  breakpoints: {
+    768: {
+      perView: 1
+    }
+  },
+  autoplay: 3500
+};
 export const Recommendations = () => {
+  // @ts-ignore
+  useEffect(() => {
+    const slider = new Glide('.glide', sliderConfiguration);
+    return () => slider.mount();
+  }, []);
+
   const recommendations: IRecommendation[] = [
     {
       project: 'September 27, 2019',
@@ -94,6 +112,42 @@ export const Recommendations = () => {
   return (
     <article className="container mx-auto my-32">
       <h5 className="text-center">Recommendations</h5>
+
+      <div className="glide">
+        <div className="glide__track mb-2" data-glide-el="track">
+          <ul className="glide__slides">
+            {recommendations.map(({ name, role, project, image }: IRecommendation) => {
+              return (
+                <li key={name + image} className="glide__slide">
+                  <div className="d-flex">
+                    {/* eslint-disable @next/next/no-img-element */}
+                    <img
+                      className="recommendations__image"
+                      src={`/images/recommendations/${image}.jpeg`}
+                      alt={name}
+                    />
+                    <div className="pl-5 pb-5">
+                      <div>
+                        <b>{name}</b>
+                      </div>
+                      <div>{role}</div>
+                      <div>
+                        <i>{project}</i>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
+        <div className="glide__bullets d-flex justify-content-center" data-glide-el="controls[nav]">
+          {recommendations.map(({ name }: IRecommendation, index: number) => (
+            <button key={name + index} className="glide__bullet" data-glide-dir={`=${index}`} />
+          ))}
+        </div>
+      </div>
     </article>
   );
 };
