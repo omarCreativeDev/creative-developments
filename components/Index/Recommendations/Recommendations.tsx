@@ -1,9 +1,12 @@
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
 import { IRecommendation } from './interfaces';
 import Glide from '@glidejs/glide';
+import Styles from './Recommendations.module.scss';
 
 const sliderConfiguration = {
-  gap: 30,
+  gap: 50,
   perView: 2,
   breakpoints: {
     768: {
@@ -19,9 +22,11 @@ export const Recommendations = () => {
     return () => slider.mount();
   }, []);
 
+  const { bullet, avatar } = Styles;
+
   const recommendations: IRecommendation[] = [
     {
-      project: 'September 27, 2019',
+      project: 'Sopra Steria',
       feedback:
         'I had the pleasure of working with Omar whilst working on the Adult Social Care Workforce Data Set for Skills ' +
         'for Care. A highly experienced and capable front end developer who was instrumental in transforming service ' +
@@ -33,7 +38,7 @@ export const Recommendations = () => {
       role: 'UX Lead'
     },
     {
-      project: 'September 18, 2019',
+      project: 'Sopra Steria',
       feedback:
         'Thorough, tenacious and inquisitive. I worked with Omar on Skills For Care; Omar frontend and I backend. ' +
         'Omar is great to work with, having good Angular skills affording him to build what looked like simple solutions ' +
@@ -45,7 +50,7 @@ export const Recommendations = () => {
       role: 'Independent IT Contractor'
     },
     {
-      project: 'February 8, 2019',
+      project: 'The Bio Agency',
       feedback:
         'Omar is one of the nicest and hardest working people I know. He will always strive to produce the best ' +
         'possible solution to a problem and goes the extra mile to deliver software on time with added flair. It was an ' +
@@ -55,7 +60,7 @@ export const Recommendations = () => {
       role: 'Freelance Fullstack Developer'
     },
     {
-      project: 'January 30, 2019',
+      project: 'Runpath',
       feedback:
         'Omar is a talented Frontend Developer with a wide range of skills and a significant attention to ' +
         'detail. He helped creating an environment where each developer had a chance to grow their own skill sets and ' +
@@ -66,7 +71,7 @@ export const Recommendations = () => {
       role: 'Head of Web Development'
     },
     {
-      project: 'May 23, 2018',
+      project: 'The Bio Agency',
       feedback:
         'Omar has demonstrated to be a great front-end lead and did so both with his genuine interest in ' +
         'finding the right solution to technical challenges, and in his care towards his teammates and the project in ' +
@@ -77,7 +82,7 @@ export const Recommendations = () => {
       role: 'Technology Leader / Director / Architect'
     },
     {
-      project: 'December 5, 2017',
+      project: 'Foundry',
       feedback:
         'Omar has been an asset to our small team. He`s knowledgeable, helpful, and always willing to take on a new ' +
         'challenge. Highly recommend Omar, and hope to work again with him in the future.',
@@ -86,7 +91,7 @@ export const Recommendations = () => {
       role: 'Engineering Manager'
     },
     {
-      project: 'November 25, 2016',
+      project: 'Transform',
       feedback:
         'Omar is the sort of developer one loves to have on their team. He uses his own initiative and creativity to ' +
         'figure out, suggest and implement what is good for the project. He also feels responsible for his work so he ' +
@@ -97,7 +102,7 @@ export const Recommendations = () => {
       role: 'Lead Developer'
     },
     {
-      project: 'February 21, 2014',
+      project: 'Connexity',
       feedback:
         'Omar is an extremely dedicated and competent Front End Developer who is always willing to learn and expand ' +
         'his knowledge. He throws himself 100 percent into tasks and will battle away to get a job done. He was a ' +
@@ -110,23 +115,23 @@ export const Recommendations = () => {
   ];
 
   return (
-    <article className="container mx-auto my-32">
+    <article className="container px-4 mx-auto my-32">
       <h5 className="text-center">Recommendations</h5>
 
       <div className="glide">
         <div className="glide__track mb-2" data-glide-el="track">
           <ul className="glide__slides">
-            {recommendations.map(({ name, role, project, image }: IRecommendation) => {
+            {recommendations.map(({ feedback, name, role, project, image }: IRecommendation) => {
               return (
                 <li key={name + image} className="glide__slide">
-                  <div className="d-flex">
+                  <div className="grid gap-8 grid-flow-col auto-cols-max">
                     {/* eslint-disable @next/next/no-img-element */}
                     <img
-                      className="recommendations__image"
+                      className={avatar}
                       src={`/images/recommendations/${image}.jpeg`}
                       alt={name}
                     />
-                    <div className="pl-5 pb-5">
+                    <div className="">
                       <div>
                         <b>{name}</b>
                       </div>
@@ -136,15 +141,20 @@ export const Recommendations = () => {
                       </div>
                     </div>
                   </div>
+                  <p className="mt-8">
+                    <FontAwesomeIcon className="pr-2" icon={faQuoteLeft} />
+                    {feedback}
+                    <FontAwesomeIcon className="pl-2" icon={faQuoteRight} />
+                  </p>
                 </li>
               );
             })}
           </ul>
         </div>
 
-        <div className="glide__bullets d-flex justify-content-center" data-glide-el="controls[nav]">
+        <div className="glide__bullets flex justify-center" data-glide-el="controls[nav]">
           {recommendations.map(({ name }: IRecommendation, index: number) => (
-            <button key={name + index} className="glide__bullet" data-glide-dir={`=${index}`} />
+            <button key={name + index} className={bullet} data-glide-dir={`=${index}`} />
           ))}
         </div>
       </div>

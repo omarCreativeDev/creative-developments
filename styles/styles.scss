@@ -5,3 +5,7 @@
 @import "variables";
 @import "typography";
 @import "~@glidejs/glide/src/assets/sass/glide.core";
+
+button.glide__bullet--active {
+  background: $tertiary-color;
+}
