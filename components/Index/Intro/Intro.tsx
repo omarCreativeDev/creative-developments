@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { YearsOfExperience } from '../../Shared/YearsOfExperience/YearsOfExperience';
 
 export const Intro = () => {
   return (
@@ -9,7 +10,8 @@ export const Intro = () => {
         <span className="text-tertiary"> DEVELOPER</span>.
       </h1>
       <p className="text-center mb-0">
-        I have 14 years solid industry experience and I&apos;m available for&nbsp;
+        I have <YearsOfExperience /> years solid industry experience and I&apos;m available
+        for&nbsp;
         <Link href="/contact-me">
           <a className="text-tertiary underline">hire</a>
         </Link>

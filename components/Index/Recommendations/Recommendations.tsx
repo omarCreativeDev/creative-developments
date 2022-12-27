@@ -19,7 +19,9 @@ export const Recommendations = () => {
   // @ts-ignore
   useEffect(() => {
     const slider = new Glide('.glide', sliderConfiguration);
-    return () => slider.mount();
+    slider.mount();
+
+    return () => slider.destroy();
   }, []);
 
   const { bullet, avatar } = Styles;
