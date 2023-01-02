@@ -20,7 +20,7 @@ export const FeaturedWork = () => {
   ];
 
   return (
-    <div className="my-24">
+    <div className="my-20">
       <h3 className="text-center">
         Featured <span className="text-tertiary">Work</span>
       </h3>

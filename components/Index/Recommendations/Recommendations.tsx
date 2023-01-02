@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { IRecommendation } from './interfaces';
 import Glide from '@glidejs/glide';
 import Styles from './Recommendations.module.scss';
+import { Page } from '../../Shared/Page/Page';
 
 const sliderConfiguration = {
   gap: 50,
@@ -117,7 +118,7 @@ export const Recommendations = () => {
   ];
 
   return (
-    <article className="container px-4 mx-auto my-32">
+    <Page>
       <h5 className="text-center">Recommendations</h5>
 
       <div className="glide">
@@ -160,6 +161,6 @@ export const Recommendations = () => {
           ))}
         </div>
       </div>
-    </article>
+    </Page>
   );
 };

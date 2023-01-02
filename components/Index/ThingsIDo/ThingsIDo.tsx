@@ -2,6 +2,7 @@ import { faCss3, faHtml5, faJsSquare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { ISubject } from './interfaces';
+import { Page } from '../../Shared/Page/Page';
 
 export const ThingsIDo = () => {
   const subjects: ISubject[] = [
@@ -29,7 +30,7 @@ export const ThingsIDo = () => {
   ];
 
   return (
-    <div className="container m-auto px-4">
+    <Page>
       <h4 className="text-center">
         Things <span className="text-tertiary">I</span> Do
         <span className="text-tertiary"> Well</span>
@@ -59,6 +60,6 @@ export const ThingsIDo = () => {
         </Link>
         &nbsp;page for a full breakdown of my capabilities as a senior front end developer.
       </p>
-    </div>
+    </Page>
   );
 };

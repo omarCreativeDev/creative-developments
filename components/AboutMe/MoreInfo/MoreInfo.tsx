@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { Page } from '../../Shared/Page/Page';
 import { YearsOfExperience } from '../../Shared/YearsOfExperience/YearsOfExperience';
 
 export const MoreInfo = () => {
   return (
-    <>
+    <Page>
       <h1>
         About <span className="text-tertiary">me</span>
       </h1>
@@ -42,6 +43,6 @@ export const MoreInfo = () => {
         </Link>
         !
       </p>
-    </>
+    </Page>
   );
 };
