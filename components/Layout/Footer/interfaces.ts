@@ -4,3 +4,7 @@ export interface DataList<Type> {
   description: ReactNode;
   items: Type[];
 }
+
+export interface DescriptionProps {
+  label: string;
+}

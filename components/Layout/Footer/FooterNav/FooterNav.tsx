@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Url } from 'url';
 import { codeLinks, emailAddress, mobileNo, navLinks, socialLinks } from '../../constants';
 import { ListItemDetails } from '../../interfaces';
+import { Description } from '../FooterTopLinks/Description';
 import { DataList } from '../interfaces';
 import styles from './FooterNav.module.scss';
 import {
@@ -18,11 +19,7 @@ import {
 export const FooterNav = () => {
   const { navBg, description } = styles;
   const browserIconList: DataList<ListItemDetails> = {
-    description: (
-      <span className="text-secondary">
-        Cross <span className="text-white">browser</span> support
-      </span>
-    ),
+    description: <Description label={'Cross browser support'} />,
     items: [
       {
         icon: faInternetExplorer,
@@ -47,19 +44,11 @@ export const FooterNav = () => {
     ]
   };
   const navigationLinks: DataList<ListItemDetails> = {
-    description: (
-      <span className="text-secondary">
-        Navigation <span className="text-white">links</span>
-      </span>
-    ),
+    description: <Description label={'Navigation links'} />,
     items: navLinks
   };
   const favouriteLinks: DataList<ListItemDetails> = {
-    description: (
-      <span className="text-secondary">
-        Favourite <span className="text-white">Links</span>
-      </span>
-    ),
+    description: <Description label={'Favourite links'} />,
     items: [
       {
         href: 'https://reactjs.org/',
@@ -88,11 +77,7 @@ export const FooterNav = () => {
     ]
   };
   const contactInfo: DataList<ListItemDetails> = {
-    description: (
-      <span className="text-secondary">
-        Contact <span className="text-white">info</span>
-      </span>
-    ),
+    description: <Description label={'Contact info'} />,
     items: [
       {
         icon: faPhone,
@@ -107,20 +92,12 @@ export const FooterNav = () => {
     ]
   };
   const codeSamples: DataList<ListItemDetails> = {
-    description: (
-      <span className="text-secondary">
-        Code <span className="text-white">samples</span>
-      </span>
-    ),
+    description: <Description label={'Code samples'} />,
     items: codeLinks
   };
 
   const connectWithMe: DataList<ListItemDetails> = {
-    description: (
-      <span className="text-secondary">
-        Connect <span className="text-white">with</span> me
-      </span>
-    ),
+    description: <Description label={'Connect with me'} />,
     items: socialLinks
   };
 
