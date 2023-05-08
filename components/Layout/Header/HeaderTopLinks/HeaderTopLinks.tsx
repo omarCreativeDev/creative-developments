@@ -39,22 +39,30 @@ export const HeaderTopLinks = () => {
         <div className="flex gap-8">
           {socialLinks &&
             socialLinks.map((i) => (
-              <Link href={i.href} key={i.label}>
-                <a className="hover:underline text-sm" target="_blank" rel="noreferrer">
-                  {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
-                  {i.label}
-                </a>
+              <Link
+                href={i.href}
+                key={i.label}
+                className="hover:underline text-sm"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
+                {i.label}
               </Link>
             ))}
         </div>
         <div className="hidden md:flex gap-8">
           {codeLinks &&
             codeLinks.map((i) => (
-              <Link href={i.href} key={i.label}>
-                <a className="hover:underline text-sm" target="_blank" rel="noreferrer">
-                  {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
-                  {i.label}
-                </a>
+              <Link
+                href={i.href}
+                key={i.label}
+                className="hover:underline text-sm"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {i.icon && <FontAwesomeIcon className={`${i.class} pr-2`} icon={i.icon} />}
+                {i.label}
               </Link>
             ))}
         </div>

@@ -55,8 +55,8 @@ export const ThingsIDo = () => {
 
       <p className="text-center mt-8">
         Or visit&nbsp;
-        <Link href="/my-skills">
-          <a className="text-tertiary underline">my skills</a>
+        <Link href="/my-skills" className="text-tertiary underline">
+          my skills
         </Link>
         &nbsp;page for a full breakdown of my capabilities as a senior front end developer.
       </p>

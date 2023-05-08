@@ -14,16 +14,16 @@ export const Intro = () => {
         <p className="text-center mb-0">
           I have <YearsOfExperience /> years solid industry experience and I&apos;m available
           for&nbsp;
-          <Link href="/contact-me">
-            <a className="text-tertiary underline">hire</a>
+          <Link href="/contact-me" className="text-tertiary underline">
+            hire
           </Link>
           &nbsp;on a contract basis. Welcome to my online&nbsp;
-          <Link href="/contact-me">
-            <a className="text-tertiary underline">portfolio</a>
+          <Link href="/contact-me" className="text-tertiary underline">
+            portfolio
           </Link>
           &nbsp;designed to showcase examples of my work and the different&nbsp;
-          <Link href="/my-skills">
-            <a className="text-tertiary underline">skills</a>
+          <Link href="/my-skills" className="text-tertiary underline">
+            skills
           </Link>
           &nbsp;I have acquired along the way.
         </p>

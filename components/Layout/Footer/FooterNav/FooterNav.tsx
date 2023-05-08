@@ -162,8 +162,8 @@ export const FooterNav = () => {
           <dt className={`pb-7 uppercase text-lg ${description}`}>{navigationLinks.description}</dt>
           {navigationLinks.items.map((i) => (
             <dd key={i.class + i.href} className="inline-grid w-1/2 pr-4">
-              <Link href={i.href}>
-                <a className="text-white no-underline hover:underline">{i.label}</a>
+              <Link href={i.href} className="text-white no-underline hover:underline">
+                {i.label}
               </Link>
             </dd>
           ))}
@@ -173,10 +173,12 @@ export const FooterNav = () => {
           <dt className={`pb-7 uppercase text-lg ${description}`}>{favouriteLinks.description}</dt>
           {favouriteLinks.items.map((i) => (
             <dd key={i.class + i.href} className="inline-grid w-1/2 pr-4">
-              <Link href={i.href}>
-                <a className="text-white no-underline hover:underline" target="_blank">
-                  {i.label}
-                </a>
+              <Link
+                href={i.href}
+                className="text-white no-underline hover:underline"
+                target="_blank"
+              >
+                {i.label}
               </Link>
             </dd>
           ))}
@@ -186,11 +188,9 @@ export const FooterNav = () => {
           <dt className={`pb-7 uppercase text-lg ${description}`}>{contactInfo.description}</dt>
           {contactInfo.items.map((i) => (
             <dd key={i.class + i.href} className="grid pr-4">
-              <Link href={i.href}>
-                <a className="hover:underline" target="_blank" rel="noreferrer">
-                  {i.icon && <FontAwesomeIcon className="pr-2" icon={i.icon} />}
-                  {i.label}
-                </a>
+              <Link href={i.href} className="hover:underline" target="_blank" rel="noreferrer">
+                {i.icon && <FontAwesomeIcon className="pr-2" icon={i.icon} />}
+                {i.label}
               </Link>
             </dd>
           ))}
@@ -209,13 +209,13 @@ export const FooterNav = () => {
           <dt className={`pb-7 uppercase text-lg ${description}`}>{connectWithMe.description}</dt>
           {connectWithMe.items.map((i) => (
             <dd key={i.class + i.href} className="inline-grid pr-4">
-              <Link href={i.href as string}>
-                <a className="hover:underline" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon
-                    className={`${i.class} text-5xl`}
-                    icon={i.icon}
-                  ></FontAwesomeIcon>
-                </a>
+              <Link
+                href={i.href as string}
+                className="hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
               </Link>
             </dd>
           ))}

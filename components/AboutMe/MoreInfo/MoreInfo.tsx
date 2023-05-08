@@ -12,8 +12,8 @@ export const MoreInfo = () => {
         Creative Developments aka Omar Mirza is a freelance front end web developer with
         <YearsOfExperience /> years commercial experience located in Barkingside, London. My aim is
         to develop{' '}
-        <Link href="/portfolio">
-          <a className="text-tertiary underline">amazing websites</a>
+        <Link href="/portfolio" className="text-tertiary underline">
+          amazing websites
         </Link>{' '}
         that my clients and I both love.
       </p>
@@ -21,8 +21,8 @@ export const MoreInfo = () => {
       <h2>Overview</h2>
       <p>
         I am proficient in taking complex{' '}
-        <Link href="/portfolio">
-          <a className="text-tertiary underline">projects</a>
+        <Link href="/portfolio" className="text-tertiary underline">
+          projects
         </Link>{' '}
         from conception to reality using solid programming principles and agile methodologies. I
         possess a forward thinking approach to developing front end architecture that’s both
@@ -34,12 +34,12 @@ export const MoreInfo = () => {
       </h3>
       <p>
         Javascript, CSS3 and HTML5 and much more! See{' '}
-        <Link href="/my-skills">
-          <a className="text-tertiary underline">my skills</a>
+        <Link href="/my-skills" className="text-tertiary underline">
+          my skills
         </Link>{' '}
         for full details. If you are interested in hiring me please{' '}
-        <Link href="/contact-me">
-          <a className="text-tertiary underline">get in touch</a>
+        <Link href="/contact-me" className="text-tertiary underline">
+          get in touch
         </Link>
         !
       </p>

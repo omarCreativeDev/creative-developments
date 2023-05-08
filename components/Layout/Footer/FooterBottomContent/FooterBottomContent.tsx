@@ -10,10 +10,8 @@ export const FooterBottomContent = () => {
         <span className="hidden sm:block">
           &copy; Copyright Creative Developments. All rights reserved.
         </span>
-        <Link href="/">
-          <a className={`${logo} no-underline text-tertiary text-l uppercase`}>
-            Creative <span className="text-primary">Developments</span>.net
-          </a>
+        <Link href="/" className={`${logo} no-underline text-tertiary text-l uppercase`}>
+          Creative <span className="text-primary">Developments</span>.net
         </Link>
       </div>
     </div>
