@@ -1,11 +1,12 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { ReactNode } from 'react';
+import { Url } from 'url';
 
 export interface ListItemDetails {
-  class?: string;
-  href: string;
+  label?: string;
+  href?: Url | string;
+  className?: string;
   icon?: IconProp;
-  label: string;
 }
 
 export interface ILayout {

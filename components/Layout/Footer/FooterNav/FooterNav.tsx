@@ -1,25 +1,23 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { emailAddress, mobileNo, navLinks } from '../../constants';
+import { Url } from 'url';
+import { codeLinks, emailAddress, mobileNo, navLinks, socialLinks } from '../../constants';
 import { ListItemDetails } from '../../interfaces';
-import { DataList, IconItemDetails } from '../interfaces';
+import { DataList } from '../interfaces';
 import styles from './FooterNav.module.scss';
 import {
   faInternetExplorer,
   faOpera,
   faFirefox,
   faChrome,
-  faSafari,
-  faGithub,
-  faBitbucket,
-  faTwitter,
-  faLinkedinIn
+  faSafari
 } from '@fortawesome/free-brands-svg-icons';
 
 export const FooterNav = () => {
   const { navBg, description } = styles;
-  const browserIconList: DataList<IconItemDetails> = {
+  const browserIconList: DataList<ListItemDetails> = {
     description: (
       <span className="text-secondary">
         Cross <span className="text-white">browser</span> support
@@ -28,23 +26,23 @@ export const FooterNav = () => {
     items: [
       {
         icon: faInternetExplorer,
-        class: 'internetExplorer'
+        className: 'internetExplorer'
       },
       {
         icon: faOpera,
-        class: 'opera'
+        className: 'opera'
       },
       {
         icon: faFirefox,
-        class: 'firefox'
+        className: 'firefox'
       },
       {
         icon: faChrome,
-        class: 'chrome'
+        className: 'chrome'
       },
       {
         icon: faSafari,
-        class: 'safari'
+        className: 'safari'
       }
     ]
   };
@@ -68,8 +66,8 @@ export const FooterNav = () => {
         label: 'React'
       },
       {
-        href: 'https://redux.js.org/',
-        label: 'Redux'
+        href: 'https://nextjs.org/',
+        label: 'Next Js'
       },
       {
         href: 'https://tailwindcss.com/',
@@ -108,42 +106,22 @@ export const FooterNav = () => {
       }
     ]
   };
-  const codeSamples: DataList<IconItemDetails> = {
+  const codeSamples: DataList<ListItemDetails> = {
     description: (
       <span className="text-secondary">
         Code <span className="text-white">samples</span>
       </span>
     ),
-    items: [
-      {
-        icon: faGithub,
-        class: 'gitHub'
-      },
-      {
-        icon: faBitbucket,
-        class: 'bitBucket'
-      }
-    ]
+    items: codeLinks
   };
 
-  const connectWithMe: DataList<IconItemDetails> = {
+  const connectWithMe: DataList<ListItemDetails> = {
     description: (
       <span className="text-secondary">
         Connect <span className="text-white">with</span> me
       </span>
     ),
-    items: [
-      {
-        href: 'https://www.linkedin.com/in/omarcreativedev',
-        icon: faLinkedinIn,
-        class: 'linkedIn'
-      },
-      {
-        href: 'https://twitter.com/OmarCreativeDev',
-        icon: faTwitter,
-        class: 'twitter'
-      }
-    ]
+    items: socialLinks
   };
 
   return (
@@ -151,19 +129,22 @@ export const FooterNav = () => {
       <div className="container m-auto px-4 text-white grid gap-x-5 gap-y-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{browserIconList.description}</dt>
-          {browserIconList.items.map((i) => (
-            <dd key={i.class + i.href} className="inline-grid pr-4">
-              <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
+          {browserIconList.items.map(({ className = '', href = '', icon = '' }) => (
+            <dd key={className + href} className="inline-grid pr-4">
+              <FontAwesomeIcon
+                className={`${className} text-5xl`}
+                icon={icon as IconProp}
+              ></FontAwesomeIcon>
             </dd>
           ))}
         </dl>
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{navigationLinks.description}</dt>
-          {navigationLinks.items.map((i) => (
-            <dd key={i.class + i.href} className="inline-grid w-1/2 pr-4">
-              <Link href={i.href} className="text-white no-underline hover:underline">
-                {i.label}
+          {navigationLinks.items.map(({ className = '', href = '', icon = '', label = '' }) => (
+            <dd key={className + href} className="inline-grid w-1/2 pr-4">
+              <Link href={href as Url} className="text-white no-underline hover:underline">
+                {label}
               </Link>
             </dd>
           ))}
@@ -171,14 +152,14 @@ export const FooterNav = () => {
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{favouriteLinks.description}</dt>
-          {favouriteLinks.items.map((i) => (
-            <dd key={i.class + i.href} className="inline-grid w-1/2 pr-4">
+          {favouriteLinks.items.map(({ className = '', href = '', icon = '', label = '' }) => (
+            <dd key={className + href} className="inline-grid w-1/2 pr-4">
               <Link
-                href={i.href}
+                href={href as Url}
                 className="text-white no-underline hover:underline"
                 target="_blank"
               >
-                {i.label}
+                {label}
               </Link>
             </dd>
           ))}
@@ -186,11 +167,11 @@ export const FooterNav = () => {
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{contactInfo.description}</dt>
-          {contactInfo.items.map((i) => (
-            <dd key={i.class + i.href} className="grid pr-4">
-              <Link href={i.href} className="hover:underline" target="_blank" rel="noreferrer">
-                {i.icon && <FontAwesomeIcon className="pr-2" icon={i.icon} />}
-                {i.label}
+          {contactInfo.items.map(({ className = '', href = '', icon = '', label = '' }) => (
+            <dd key={className + href} className="grid pr-4">
+              <Link href={href as Url} className="hover:underline" target="_blank" rel="noreferrer">
+                {icon && <FontAwesomeIcon className="pr-2" icon={icon as IconProp} />}
+                {label}
               </Link>
             </dd>
           ))}
@@ -198,24 +179,27 @@ export const FooterNav = () => {
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{codeSamples.description}</dt>
-          {codeSamples.items.map((i) => (
-            <dd key={i.class + i.href} className="inline-grid pr-4">
-              <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
+          {codeSamples.items.map(({ className = '', href = '', icon = '', label = '' }) => (
+            <dd key={className + href} className="inline-grid pr-4">
+              <Link href={href as Url} className="hover:underline" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon
+                  className={`${className} text-5xl`}
+                  icon={icon as IconProp}
+                ></FontAwesomeIcon>
+              </Link>
             </dd>
           ))}
         </dl>
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{connectWithMe.description}</dt>
-          {connectWithMe.items.map((i) => (
-            <dd key={i.class + i.href} className="inline-grid pr-4">
-              <Link
-                href={i.href as string}
-                className="hover:underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon className={`${i.class} text-5xl`} icon={i.icon}></FontAwesomeIcon>
+          {connectWithMe.items.map(({ className = '', href = '', icon = '', label = '' }) => (
+            <dd key={className + href} className="inline-grid pr-4">
+              <Link href={href as Url} className="hover:underline" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon
+                  className={`${className} text-5xl`}
+                  icon={icon as IconProp}
+                ></FontAwesomeIcon>
               </Link>
             </dd>
           ))}

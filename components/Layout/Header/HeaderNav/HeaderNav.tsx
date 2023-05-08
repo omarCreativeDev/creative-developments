@@ -14,17 +14,16 @@ export const HeaderNav = () => {
           </Link>
           <nav className="flex pb-12 md:pb-0">
             <ul className="grid grid-flow-col auto-cols-max content-center gap-6 mb-0">
-              {navLinks &&
-                navLinks.map((i) => (
-                  <li key={i.label}>
-                    <Link
-                      href={i.href}
-                      className={`text-white no-underline py-3 hover:underline ${link}`}
-                    >
-                      {i.label.toUpperCase()}
-                    </Link>
-                  </li>
-                ))}
+              {navLinks.map(({ href = '', label = '' }) => (
+                <li key={label}>
+                  <Link
+                    href={href as string}
+                    className={`text-white no-underline py-3 hover:underline ${link}`}
+                  >
+                    {label.toUpperCase()}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

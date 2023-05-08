@@ -1,3 +1,4 @@
+import { faBitbucket, faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { ListItemDetails } from './interfaces';
 
 export const navLinks: ListItemDetails[] = [
@@ -16,6 +17,35 @@ export const navLinks: ListItemDetails[] = [
   {
     href: '/contact-me',
     label: 'Contact'
+  }
+];
+
+export const socialLinks: ListItemDetails[] = [
+  {
+    href: 'https://www.linkedin.com/in/omarcreativedev',
+    icon: faLinkedinIn,
+    label: 'LinkedIn',
+    className: 'linkedIn'
+  },
+  {
+    href: 'https://twitter.com/OmarCreativeDev',
+    icon: faTwitter,
+    label: 'Twitter',
+    className: 'twitter'
+  }
+];
+
+export const codeLinks: ListItemDetails[] = [
+  {
+    href: 'https://github.com/omarCreativeDev',
+    icon: faGithub,
+    label: 'Github'
+  },
+  {
+    href: 'https://bitbucket.org/omarCreativeDev',
+    icon: faBitbucket,
+    label: 'Bitbucket',
+    className: 'bitBucket'
   }
 ];
 
