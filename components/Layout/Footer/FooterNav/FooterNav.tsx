@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Url } from 'url';
 import { codeLinks, emailAddress, mobileNo, navLinks, socialLinks } from '../../constants';
 import { ListItemDetails } from '../../interfaces';
-import { Description } from '../FooterTopLinks/Description';
+import { Description } from '../FooterTopLinks/Description/Description';
 import { DataList } from '../interfaces';
 import styles from './FooterNav.module.scss';
 import {
@@ -15,6 +15,7 @@ import {
   faChrome,
   faSafari
 } from '@fortawesome/free-brands-svg-icons';
+import { LargeIconItem } from './LargeIconItem/LargeIconItem';
 
 export const FooterNav = () => {
   const { navBg, description } = styles;
@@ -95,7 +96,6 @@ export const FooterNav = () => {
     description: <Description label={'Code samples'} />,
     items: codeLinks
   };
-
   const connectWithMe: DataList<ListItemDetails> = {
     description: <Description label={'Connect with me'} />,
     items: socialLinks
@@ -106,14 +106,10 @@ export const FooterNav = () => {
       <div className="container m-auto px-4 text-white grid gap-x-5 gap-y-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{browserIconList.description}</dt>
-          {browserIconList.items.map(({ className = '', href = '', icon = '' }) => (
-            <dd key={className + href} className="inline-grid pr-4">
-              <FontAwesomeIcon
-                className={`${className} text-5xl`}
-                icon={icon as IconProp}
-              ></FontAwesomeIcon>
-            </dd>
-          ))}
+          {browserIconList.items.map((item) => {
+            const { className = '', href = '' } = item;
+            return <LargeIconItem key={className + href} {...item} />;
+          })}
         </dl>
 
         <dl>
@@ -156,30 +152,18 @@ export const FooterNav = () => {
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{codeSamples.description}</dt>
-          {codeSamples.items.map(({ className = '', href = '', icon = '', label = '' }) => (
-            <dd key={className + href} className="inline-grid pr-4">
-              <Link href={href as Url} className="hover:underline" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className={`${className} text-5xl`}
-                  icon={icon as IconProp}
-                ></FontAwesomeIcon>
-              </Link>
-            </dd>
-          ))}
+          {codeSamples.items.map((item) => {
+            const { className = '', href = '' } = item;
+            return <LargeIconItem key={className + href} {...item} />;
+          })}
         </dl>
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{connectWithMe.description}</dt>
-          {connectWithMe.items.map(({ className = '', href = '', icon = '', label = '' }) => (
-            <dd key={className + href} className="inline-grid pr-4">
-              <Link href={href as Url} className="hover:underline" target="_blank" rel="noreferrer">
-                <FontAwesomeIcon
-                  className={`${className} text-5xl`}
-                  icon={icon as IconProp}
-                ></FontAwesomeIcon>
-              </Link>
-            </dd>
-          ))}
+          {connectWithMe.items.map((item) => {
+            const { className = '', href = '' } = item;
+            return <LargeIconItem key={className + href} {...item} />;
+          })}
         </dl>
       </div>
     </div>
