@@ -16,6 +16,7 @@ import {
   faSafari
 } from '@fortawesome/free-brands-svg-icons';
 import { LargeIconItem } from './LargeIconItem/LargeIconItem';
+import { LinkItem } from './LinkItem/LinkItem';
 
 export const FooterNav = () => {
   const { navBg, description } = styles;
@@ -106,36 +107,25 @@ export const FooterNav = () => {
       <div className="container m-auto px-4 text-white grid gap-x-5 gap-y-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{browserIconList.description}</dt>
-          {browserIconList.items.map((item) => {
-            const { className = '', href = '' } = item;
-            return <LargeIconItem key={className + href} {...item} />;
-          })}
+          {browserIconList.items.map(({ className = '', href = '', icon }) => (
+            <LargeIconItem key={className + href} {...{ className, href, icon }} />
+          ))}
         </dl>
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{navigationLinks.description}</dt>
-          {navigationLinks.items.map(({ className = '', href = '', icon = '', label = '' }) => (
-            <dd key={className + href} className="inline-grid w-1/2 pr-4">
-              <Link href={href as Url} className="text-white no-underline hover:underline">
-                {label}
-              </Link>
-            </dd>
-          ))}
+          {navigationLinks.items.map(({ className = '', href = '', label = '' }) => {
+            return <LinkItem key={className + href} {...{ className, href, label }} />;
+          })}
         </dl>
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{favouriteLinks.description}</dt>
-          {favouriteLinks.items.map(({ className = '', href = '', icon = '', label = '' }) => (
-            <dd key={className + href} className="inline-grid w-1/2 pr-4">
-              <Link
-                href={href as Url}
-                className="text-white no-underline hover:underline"
-                target="_blank"
-              >
-                {label}
-              </Link>
-            </dd>
-          ))}
+          {favouriteLinks.items.map(({ className = '', href = '', label = '' }) => {
+            return (
+              <LinkItem key={className + href} {...{ className, href, label, targetBlank: true }} />
+            );
+          })}
         </dl>
 
         <dl>
@@ -152,18 +142,16 @@ export const FooterNav = () => {
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{codeSamples.description}</dt>
-          {codeSamples.items.map((item) => {
-            const { className = '', href = '' } = item;
-            return <LargeIconItem key={className + href} {...item} />;
-          })}
+          {codeSamples.items.map(({ className = '', href = '', icon }) => (
+            <LargeIconItem key={className + href} {...{ className, href, icon }} />
+          ))}
         </dl>
 
         <dl>
           <dt className={`pb-7 uppercase text-lg ${description}`}>{connectWithMe.description}</dt>
-          {connectWithMe.items.map((item) => {
-            const { className = '', href = '' } = item;
-            return <LargeIconItem key={className + href} {...item} />;
-          })}
+          {connectWithMe.items.map(({ className = '', icon, href = '' }) => (
+            <LargeIconItem key={className + href} {...{ className, href, icon }} />
+          ))}
         </dl>
       </div>
     </div>
