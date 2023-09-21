@@ -1,15 +1,14 @@
 import Link from 'next/link';
-import { Page } from '../../Shared/Page/Page';
 import { YearsOfExperience } from '../../Shared/YearsOfExperience/YearsOfExperience';
 
 export const MoreInfo = () => {
   return (
-    <Page>
+    <div className="col-span-9">
       <h1>
         About <span className="text-tertiary">me</span>
       </h1>
       <p>
-        Creative Developments aka Omar Mirza is a freelance front end web developer with
+        Creative Developments aka Omar Mirza is a freelance front end web developer with{' '}
         <YearsOfExperience /> years commercial experience located in Barkingside, London. My aim is
         to develop{' '}
         <Link href="/portfolio" className="text-tertiary underline">
@@ -43,6 +42,6 @@ export const MoreInfo = () => {
         </Link>
         !
       </p>
-    </Page>
+    </div>
   );
 };
